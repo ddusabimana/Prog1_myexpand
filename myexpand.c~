@@ -1,0 +1,45 @@
+/*
+  CS 350 Program : 1
+*/
+
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+
+int main(int argc, char ** argv)
+{
+  unsigned int nX, nCols,col;
+    unsigned int chrX;
+    nCols = 8;
+    col=0;
+    chrX = 0;
+    if(argc==3)
+    nCols = atoi(argv[2]);// get number from command line
+    else if((argc!=3)&&(argc!=1)){
+      fprintf(stderr,"Command error.\n");
+      return 0;
+    }
+    chrX = ' ';
+    while(chrX != EOF) { // go through the file until the end of file
+      chrX = getchar();
+      if(chrX == '\t') {
+	for(;;){
+	  col++;
+	  putchar(' '); // add a space	 
+	  if(col%nCols == 0)
+	    break;
+	  }}
+	
+	else if(chrX == '\n'){
+	col = 0;
+	putchar(chrX);
+      } 
+
+      else { // not tab, just reproduce as original
+            putchar(chrX);
+	    col++;
+      }
+    }
+}
+/* - E N D - */
+
